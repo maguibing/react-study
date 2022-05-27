@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+  }
+  .comments {
+    background-color: #121212;
+    color: #eee;
+    padding: 24px;
+    width: 1000px;
+    margin: 0 auto;
+  }
+  .comm-head {
+    color: #eee;
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+  .comm-head sub {
+    font-size: 14px;
+    color: #666;
+    margin-left: 6px;
+    bottom: 0.2em;
+    position: relative;
+  }
+  .comm-list {
+    list-style: none;
+    padding: 0;
+  }
+  .comm-item {
+    display: flex;
+    margin-bottom: 24px;
+  }
+  .comm-item .avatar {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 24px;
+    display: inline-block;
+    cursor: pointer;
+    background-position: 50%;
+    background-size: 100%;
+    background-color: #eee;
+  }
+  .comm-item .info {
+    padding-left: 16px;
+  }
+  .comm-item .info p {
+    margin: 8px 0;
+  }
+  .comm-item .info p.name {
+    color: #999;
+  }
+  .comm-item .info p.vip {
+    color: #ebba73;
+  }
+  .comm-item .info p.vip img {
+    width: 14px;
+    vertical-align: baseline;
+    margin-left: 5px;
+  }
+  .comm-item .info p.time {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .comm-item .info .del {
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .comm-item .info .del:hover {
+    color: #ccc;
+  }
+  
+  .comm-input {
+    border-radius: 6px;
+    padding: 18px;
+    background-color: #25252b;
+  }
+  .comm-input textarea {
+    border: 0;
+    outline: 0;
+    resize: none;
+    background: transparent;
+    color: #999;
+    width: 100%;
+    font-family: inherit;
+    height: auto;
+    overflow: auto;
+  }
+  .comm-input .foot {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: center;
+  }
+  .comm-input .foot .word {
+    line-height: 36px;
+    margin-right: 10px;
+    color: #999;
+  }
+  .comm-input .foot .btn {
+    background-color: #ff008c;
+    font-size: 14px;
+    color: #fff;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 18px;
+    padding: 0 24px;
+    cursor: pointer;
+    user-select: none;
+  }
