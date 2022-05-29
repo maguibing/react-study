@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDom from 'react-dom'
+import ReactDom from 'react-dom/client'
 import Student from './components/Student'
 
 function Header() {
@@ -10,4 +10,4 @@ function Header() {
   )
 }
 
-ReactDom.render(Header(), document.querySelector('#root'))
+ReactDom.createRoot(document.querySelector('#root')).render(Header())
