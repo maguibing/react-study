@@ -1,17 +1,12 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import Student from './components/Student'
 
 function Header() {
   return (
-    <React.Fragment>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-      </ul>
-    </React.Fragment>
+    <React.StrictMode>
+      <Student />
+    </React.StrictMode>
   )
 }
 
