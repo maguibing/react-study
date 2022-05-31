@@ -1,11 +1,24 @@
 import React from 'react'
-import ReactDom from 'react-dom/client'
 
 // 函数组件的基本使用
 export default function Son(props) {
   return (
-    <div>
-      {props.name} {'123'}
-    </div>
+    <React.Fragment>
+      <div>
+        {props.name} {'123'}
+      </div>
+      <hr />
+      <Child name="劳务" age="12312"></Child>
+    </React.Fragment>
   )
+}
+
+class Child extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <span>{this.props.name}</span>
+      </React.Fragment>
+    )
+  }
 }
