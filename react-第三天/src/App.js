@@ -16,6 +16,7 @@ export default class Child extends React.Component {
     return (
       <React.Fragment>
         <Parent money={money} increment={this.increment.bind(this)}></Parent>
+        <Sass increment={this.increment.bind(this)}></Sass>
       </React.Fragment>
     )
   }
@@ -32,4 +33,12 @@ class Parent extends React.Component {
       </React.Fragment>
     )
   }
+}
+
+function Sass(props) {
+  return (
+    <React.Fragment>
+      <button onClick={() => props.increment(100)}>decrement</button>
+    </React.Fragment>
+  )
 }
