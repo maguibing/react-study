@@ -2,33 +2,34 @@ import React from 'react'
 
 export default class Child extends React.Component {
   state = {
-    news: [{ a: 1 }, { a: 2 }, { a: 3 }],
+    money: 1000,
   }
+
+  increment = (price) => {
+    this.setState({
+      money: this.state.money - price,
+    })
+  }
+
   render() {
-    const { news } = this.state
+    const { money } = this.state
     return (
       <React.Fragment>
-        {news.map((v, i) => (
-          <Parent key={i} />
-        ))}
+        <Parent money={money} increment={this.increment.bind(this)}></Parent>
       </React.Fragment>
     )
   }
 }
 
-function Parent() {
-  return (
-    <React.Fragment>
-      <div className="parent">
-        <h1>今日要闻</h1>
-        <div className="child">
-          <h3>坚定不移走中国特色社会主义法治道路</h3>
-          <div className="detail">
-            <span>新华社</span>
-            <span>774点赞</span>
-          </div>
+class Parent extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <div className="parent">
+          <h1>{this.props.money}</h1>
+          <button onClick={() => this.props.increment(500)}>increment</button>
         </div>
-      </div>
-    </React.Fragment>
-  )
+      </React.Fragment>
+    )
+  }
 }
