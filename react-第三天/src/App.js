@@ -1,44 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default class Child extends React.Component {
+// 导入两个子组件
+import Jack from './components/Jack'
+import Rose from './components/Rose'
+
+// App 是父组件
+export default class App extends Component {
+  // 1. 状态提升到父组件
   state = {
-    money: 1000,
+    msg: '',
   }
 
-  increment = (price) => {
-    this.setState({
-      money: this.state.money - price,
-    })
+  changeMsg = (msg) => {
+    this.setState({ msg })
   }
 
   render() {
-    const { money } = this.state
     return (
-      <React.Fragment>
-        <Parent money={money} increment={this.increment.bind(this)}></Parent>
-        <Sass increment={this.increment.bind(this)}></Sass>
-      </React.Fragment>
+      <div>
+        <h1>我是App组件</h1>
+        {/* 兄弟组件 1 */}
+        <Jack changeMsg={this.changeMsg}></Jack>
+        {/* 兄弟组件 2 */}
+        <Rose msg={this.state.msg}></Rose>
+      </div>
     )
   }
-}
-
-class Parent extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div className="parent">
-          <h1>{this.props.money}</h1>
-          <button onClick={() => this.props.increment(500)}>increment</button>
-        </div>
-      </React.Fragment>
-    )
-  }
-}
-
-function Sass(props) {
-  return (
-    <React.Fragment>
-      <button onClick={() => props.increment(100)}>decrement</button>
-    </React.Fragment>
-  )
 }
