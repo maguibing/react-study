@@ -1,38 +1,47 @@
-const CommentList = () => {
+import dayjs from 'dayjs';
+const CommentList = (props) => {
+    const formatTime = (time) => dayjs(time).format('YYYY/MM/DD HH:mm:ss');
+    const { comments, active } = props
+    let newComments = [...comments]
+    // sort方法会改变原数组
+    if (active === 'default') {
+        newComments.sort((a, b) => b.id - a.id)
+    } else { 
+        newComments.sort((a, b) =>b.time- a.time)
+    }
     return (
       <ul className="comm-list">
-        <li className="comm-item">
-          <div className="avatar"></div>
+         {newComments.map((item) => (
+        <li className="comm-item" key={item.id}>
+          <div
+            className="avatar"
+            style={{ backgroundImage: `url(${item.avatar})` }}
+          ></div>
           <div className="info">
-            <p className="name vip">
-              清风徐来
-              <img alt="" src="https://gw.alicdn.com/tfs/TB1c5JFbGSs3KVjSZPiXXcsiVXa-48-48.png" />
+            <p className={`name ${item.vip ? 'vip' : ''}`}>
+              {item.name}
+              {item.vip && (
+                <img
+                  alt=""
+                  src={
+                    'https://gw.alicdn.com/tfs/TB1c5JFbGSs3KVjSZPiXXcsiVXa-48-48.png'
+                  }
+                />
+              )}
             </p>
             <p className="time">
-              <span>2012-12-12</span>
-              <span className="iconfont icon-collect"></span>
-              <span className="del">删除</span>
+              <span>{formatTime(item.time)}</span>
+              <span onClick={()=>props.changeCollet(item.id)}
+                className={`iconfont icon-collect${item.collect ? '-sel' : ''}`}
+              ></span>
+              {item.name === props.user.name && (
+                <span className="del" onClick={()=>props.delitem(item.id)}>删除</span>
+              )}
             </p>
-            <p>
-              这里是评论的内容！！！这里是评论的内容！！！这里是评论的内容！！！
-            </p>
+            <p>{item.content}</p>
           </div>
         </li>
-        <li className="comm-item">
-          <div className="avatar"></div>
-          <div className="info">
-            <p className="name">
-              清风徐来
-            </p>
-            <p className="time">
-              <span>2012-12-12</span>
-              <span className="iconfont icon-collect-sel"></span>
-            </p>
-            <p>
-              这里是评论的内容！！！这里是评论的内容！！！这里是评论的内容！！！
-            </p>
-          </div>
-        </li>
+      ))}
       </ul>
     )
   }
