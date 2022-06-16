@@ -50,6 +50,10 @@ export default class App extends Component {
         ],
     };
 
+    componentDidUpdate () { 
+        localStorage.setItem("comments",JSON.stringify(this.state.comments))
+    }
+
     // header 组件更新类型
     updateActive = (active) => {
         this.setState({active})
