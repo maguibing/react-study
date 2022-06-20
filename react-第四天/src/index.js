@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App array={[1, 2, 3]} />
+    <App />
   </React.StrictMode>,
 )
 
