@@ -21,7 +21,8 @@ const Main = ({todoList,updateTodo,del}) => {
 // 参数校验
 Main.protoTypes = {
     todoList: PropTypes.array.isRequired,
-    getTodoList:PropTypes.func.isRequired
+    getTodoList: PropTypes.func.isRequired
+    // 测试 sourcetree 能不能提交代码
     
 }
 
