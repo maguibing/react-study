@@ -1,16 +1,12 @@
 import './App.css'
-
-/**
- * this.setState((prev)=>{return {}})
- * this.setState((prev)=>{return {}},()=>{更新后的值})
- * setTimeout(() => {
-    this.setState({count: count+1})
- }, timeout);
- * @returns
- */
+import UseHello from './components/useHello.jsx'
 
 function App() {
-  return <div className="App">123</div>
+  return (
+    <div className="App">
+      <UseHello></UseHello>
+    </div>
+  )
 }
 
 export default App
