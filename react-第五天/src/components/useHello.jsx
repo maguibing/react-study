@@ -1,18 +1,18 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 const Hooks = () => {
     const [age, setAge] = useState(0)
     const [name, setName] = useState("张三")
     const [goal, changeTarget] = useState({ name: "", age: 18 })
     
-    // changeTarget = () => { }
     const updateTarget = () => { 
-        changeTarget({
-            ...goal,
-            name:"王老五"
-        })
+        changeTarget({ ...goal, name:"王老五" })
     }
 
+    useEffect(() => {
+        setAge(age+1)
+        // 提供书写副作用代码的空间
+    },[])
 
     return <>
     <h1>{age}</h1>
