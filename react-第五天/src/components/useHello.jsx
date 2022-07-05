@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 
 const Hooks = () => {
     const [age, setAge] = useState(0)
@@ -8,11 +8,11 @@ const Hooks = () => {
     const updateTarget = () => { 
         changeTarget({ ...goal, name:"王老五" })
     }
-
-    useEffect(() => {
-        setAge(age+1)
-        // 提供书写副作用代码的空间
-    },[])
+    // 只要组件渲染更新就会执行  只会执行一次 不传值的话
+    // useEffect(() => {
+    //     setAge(age+1)
+    //     // 提供书写副作用代码的空间
+    // },[])
 
     return <>
     <h1>{age}</h1>
